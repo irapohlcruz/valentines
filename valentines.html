@@ -16,7 +16,7 @@
             flex-direction: column;
             background-image: url('https://www.transparenttextures.com/patterns/diagonal-stripes-light.png');
             background-size: cover;
-            overflow-y: auto; /* Allow vertical scrolling */
+            overflow-y: auto;
             text-align: center;
         }
 
@@ -42,7 +42,7 @@
         }
 
         .image-container img {
-            max-width: 80%; /* Adjust this to control the size */
+            max-width: 80%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -64,7 +64,6 @@
             background-color: #c0392b;
         }
 
-        /* Heart animation */
         .heart {
             position: absolute;
             font-size: 30px;
@@ -73,7 +72,6 @@
             z-index: 100;
         }
 
-        /* Keyframes for heart animation */
         @keyframes heartJump {
             0% {
                 transform: translateY(0) scale(1);
@@ -91,21 +89,18 @@
     </style>
 </head>
 <body>
-
-    <!-- Message Text -->
     <div class="message">
         Happy Valentine's Day! 💖
     </div>
 
-    <!-- Button to Show Image and Play Music -->
     <button class="btn" onclick="showImagePlayMusicAndHearts()">Click Me! Please please please</button>
 
-    <!-- Image Container (hidden initially) -->
     <div class="image-container" id="imageContainer">
-        <img src="https://scontent.fmnl37-1.fna.fbcdn.net/v/t39.30808-6/426378623_7814774718537119_838087616083791138_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGAnFEj0wBRMXPJvT6dbiDrlMLq31S7xCSUwurfVLvEJAwIMfhlyfiHE_eDJFS0-eqPr_n76U3FtfOJpar0t243&_nc_ohc=5EQu75lzl2oQ7kNvgHGp2yo&_nc_oc=AdjhyBcZRHsHtocWJWS5xiCtrIo3udgBhc5glLyDqNEdsgGP9WiZHNKZbXJcPy_feKw&_nc_zt=23&_nc_ht=scontent.fmnl37-1.fna&_nc_gid=Ananhu9NeNq2_lypC54Yyas&oh=00_AYALZH7iyWD73OQww9LQu9YZ3B5v-tGE6GvZLlWsY7DjQA&oe=67B45005" alt="Your Picture Together">
+        <img src=" <div class="image-container" id="imageContainer">
+        <img src="Valentines.jpeg" alt="Your Picture Together">
+    </div>" alt="BiancaAndI">
     </div>
 
-    <!-- Embed Spotify Music Player -->
     <div id="spotifyPlayer" style="display:none; margin-top: 20px;">
         <iframe id="spotifyIframe" style="border-radius:12px"
             src="https://open.spotify.com/embed/track/39SQ0CjIineoa2mbiJpZdk?utm_source=generator&autoplay=true"
@@ -115,36 +110,29 @@
 
     <script>
         function showImagePlayMusicAndHearts() {
-            // Show the image
             const imageContainer = document.getElementById('imageContainer');
             imageContainer.style.display = 'block';
 
-            // Show the Spotify player and force autoplay
             const spotifyPlayer = document.getElementById('spotifyPlayer');
             spotifyPlayer.style.display = 'block';
 
-            // Trigger Spotify autoplay by reloading the iframe src
             const spotifyIframe = document.getElementById('spotifyIframe');
             const iframeSrc = spotifyIframe.src;
-            spotifyIframe.src = ''; // Temporarily clear the source
-            spotifyIframe.src = iframeSrc; // Reset the source to play music
+            spotifyIframe.src = '';
+            spotifyIframe.src = iframeSrc;
 
-            // Create heart effects
             createHearts();
         }
 
-        // Function to create heart effects
         function createHearts() {
             for (let i = 0; i < 30; i++) {
                 const heart = document.createElement('div');
                 heart.classList.add('heart');
                 heart.innerHTML = '💖';
 
-                // Randomize the starting position of the heart
                 heart.style.left = `${Math.random() * 100}%`;
                 heart.style.top = `${Math.random() * 100}%`;
 
-                // Append the heart to the body
                 document.body.appendChild(heart);
             }
         }
